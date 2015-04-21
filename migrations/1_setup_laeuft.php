@@ -11,9 +11,6 @@ class SetupLaeuft extends DBMigration {
   PRIMARY KEY (`laeuft_id`),
   KEY (`user_id`)
 )");
-
-        StudipAutoloader::addAutoloadPath(__DIR__ . '/../models');
-        ToDo::expireTableScheme();
     }
 
     function down() {
