@@ -1,16 +1,12 @@
 $(document).ready(function () {
-    $('a.todo_link').click(function (e) {
+    $('a.laeuft').click(function (e) {
         e.preventDefault();
-        if (!$(this).hasClass('accepted-todo')) {
             var text = e.target.text;
-            var url = $(this).prop('href')
+            var url = $(this).prop('href');
             var anchor = $(this);
-            if (e.shiftKey || confirm('Neue Aufgabe "' + text + '" hinzufügen?')) {
-                $.ajax({
-                    url: url
-                });
-                anchor.addClass('accepted-todo');
-            }
-        }
+            $.ajax({
+                url: url
+            });
+            anchor.toggleClass('laeuft_bei_dir');
     });
 });
