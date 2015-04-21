@@ -1,0 +1,7 @@
+a.laeuft ~ span {
+    display: none;
+}
+
+a.laeuft_bei_dir ~span {
+    display: inline;
+}
