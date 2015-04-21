@@ -7,7 +7,7 @@ class LaeuftPlugin extends StudIPPlugin implements SystemPlugin {
         PageLayout::addScript($this->getPluginURL() . '/laeuft.js');
         PageLayout::addStylesheet($this->getPluginURL() . '/laeuft.css');
         StudipTransformFormat::addStudipMarkup('LaeuftPlugin', '#läuft', NULL, 'LaeuftPlugin::init');
-        StudipFormat::addStudipMarkup('LaeuftPlugin', "#läuft:(\w){32}", null, 'LaeuftPlugin::markup');
+        StudipFormat::addStudipMarkup('LaeuftPlugin', "\[läuft:(\w){32}\]", null, 'LaeuftPlugin::markup');
 
         if (Request::submitted('laeuft')) {
             $parameter = array(Request::get('laeuft'), $GLOBALS['user']->id);
@@ -20,7 +20,7 @@ class LaeuftPlugin extends StudIPPlugin implements SystemPlugin {
     }
 
     public static function init($markup, $matches, $contents) {
-        return "#läuft:" . md5(uniqid("läuft"));
+        return "[läuft:" . md5(uniqid("läuft")).']';
     }
 
     public static function markup($markup, $matches, $contents) {
