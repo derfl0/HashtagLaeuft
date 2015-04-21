@@ -8,8 +8,7 @@ class SetupLaeuft extends DBMigration {
         DBManager::get()->exec("CREATE TABLE `laeuft` (
   `laeuft_id` varchar(32) NOT NULL DEFAULT '',
   `user_id` varchar(32) NOT NULL DEFAULT '',
-  PRIMARY KEY (`laeuft_id`),
-  KEY (`user_id`)
+  PRIMARY KEY (`laeuft_id`, `user_id`)
 )");
     }
 
